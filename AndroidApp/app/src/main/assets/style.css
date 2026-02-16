@@ -1,0 +1,254 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+#app {
+    max-width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 1.5rem;
+}
+
+#version {
+    font-size: 0.8rem;
+    background-color: rgba(255,255,255,0.2);
+    padding: 3px 8px;
+    border-radius: 10px;
+}
+
+main {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+}
+
+#editor-container {
+    background-color: white;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 15px;
+}
+
+#code-editor {
+    width: 100%;
+    height: 300px;
+    border: none;
+    resize: none;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1rem;
+    line-height: 1.4;
+    outline: none;
+}
+
+#controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+#run-btn, #clear-btn {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#run-btn {
+    background-color: #4CAF50;
+    color: white;
+}
+
+#run-btn:hover {
+    background-color: #45a049;
+}
+
+#clear-btn {
+    background-color: #f44336;
+    color: white;
+}
+
+#clear-btn:hover {
+    background-color: #da190b;
+}
+
+#output-container {
+    background-color: white;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+#output-container h3 {
+    margin-bottom: 10px;
+    color: #555;
+}
+
+#output {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 4px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    min-height: 150px;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+/* 模态框样式 */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 50% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.modal-content h2 {
+    margin-bottom: 15px;
+    color: #4CAF50;
+}
+
+.modal-content p {
+    margin-bottom: 10px;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.modal-buttons button {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#update-now {
+    background-color: #4CAF50;
+    color: white;
+}
+
+#update-later {
+    background-color: #9e9e9e;
+    color: white;
+}
+
+/* 响应式设计 - 6.5-6.89英寸屏幕 (约393-428px宽度) */
+@media (min-width: 393px) and (max-width: 428px) {
+    header h1 {
+        font-size: 1.3rem;
+    }
+    
+    #code-editor {
+        height: 350px;
+        font-size: 1rem;
+    }
+    
+    #run-btn, #clear-btn {
+        padding: 12px;
+        font-size: 1rem;
+    }
+    
+    .modal-content {
+        margin: 50% auto;
+        padding: 20px;
+    }
+    
+    #output {
+        min-height: 200px;
+    }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.2rem;
+    }
+    
+    #code-editor {
+        height: 250px;
+        font-size: 0.9rem;
+    }
+    
+    #run-btn, #clear-btn {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+    
+    .modal-content {
+        margin: 60% auto;
+    }
+}
+
+@media (max-width: 480px) {
+    main {
+        padding: 10px;
+    }
+    
+    #code-editor {
+        height: 200px;
+        font-size: 0.8rem;
+    }
+    
+    .modal-content {
+        margin: 70% auto;
+        padding: 15px;
+    }
+}

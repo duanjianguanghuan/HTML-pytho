@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>移动端Python代码编辑器</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1>Python代码编辑器</h1>
+            <div id="version">v1.0</div>
+        </header>
+        
+        <main>
+            <div id="editor-container">
+                <textarea id="code-editor" placeholder="在此输入Python代码..."></textarea>
+            </div>
+            
+            <div id="controls">
+                <button id="run-btn">运行</button>
+                <button id="clear-btn">清空</button>
+            </div>
+            
+            <div id="output-container">
+                <h3>运行结果</h3>
+                <pre id="output"></pre>
+            </div>
+        </main>
+        
+
+    </div>
+    
+    <div id="update-modal" class="modal">
+        <div class="modal-content">
+            <h2>发现新版本</h2>
+            <p>当前版本: v1.0</p>
+            <p>最新版本: v1.1</p>
+            <p>是否更新到最新版本？</p>
+            <div class="modal-buttons">
+                <button id="update-now">立即更新</button>
+                <button id="update-later">稍后更新</button>
+            </div>
+            <p id="update-count" style="font-size: 12px; color: #666; margin-top: 10px;">忽略次数: 0/3</p>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
